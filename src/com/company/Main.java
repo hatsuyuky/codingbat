@@ -181,4 +181,66 @@ int sum2(int []nums){
         sum=nums[0]+nums[1];
     return 0;
 }
+/*
+* Given an array of ints, return a new array length 2 containing the first and last elements from the original array.
+* The original array will be length 1 or more.
+
+
+makeEnds([1, 2, 3]) → [1, 3]
+makeEnds([1, 2, 3, 4]) → [1, 4]
+makeEnds([7, 4, 6, 2]) → [7, 2]
+
+*
+* */
+
+int [] makeEnds(int[]nums){
+    if(nums.length==1)
+    return nums;
+    else
+    {
+        nums[0]=nums[0];
+        nums[1]=nums[nums.length-1];
+        return nums;
+    }
+
+}
+/*
+* Given an int array length 2, return true if it contains a 2 or a 3.
+
+
+has23([2, 5]) → true
+has23([4, 3]) → true
+has23([4, 5]) → false*/
+
+boolean has23(int nums[]){
+    boolean b = (nums[0] == 2 || nums[0] == 3) || (nums[1] == 3 || nums[1] == 2);
+    return b;
+}
+/*
+*
+Given an int array length 2, return true if it does not contain a 2 or 3.
+
+
+no23([4, 5]) → true
+no23([4, 2]) → false
+no23([3, 5]) → false*/
+boolean no23(int nums[]){
+    if(nums[0] == 2 || nums[0] == 3)
+        return false;
+    return !(nums[1] == 2 || nums[1] == 3);
+}
+/*
+* Given an int array, return a new array with double the length where its last element is the same as the original array,
+* and all the other elements are 0. The original array will be length 1 or more. Note: by default, a new int array contains all 0's.
+makeLast([4, 5, 6]) → [0, 0, 0, 0, 0, 6]
+makeLast([1, 2]) → [0, 0, 0, 2]
+makeLast([3]) → [0, 3]
+
+* */
+
+int []makeLast(int nums[]){
+    int[] arr = new int[2 * nums.length];
+    arr[arr.length - 1] = nums[nums.length - 1];
+    return arr;
+}
 }
