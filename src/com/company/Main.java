@@ -243,4 +243,95 @@ int []makeLast(int nums[]){
     arr[arr.length - 1] = nums[nums.length - 1];
     return arr;
 }
+/*
+* Start with 2 int arrays, a and b, of any length. Return how many of the arrays have 1 as their first element.
+
+
+start1([1, 2, 3], [1, 3]) → 2
+start1([7, 2, 3], [1]) → 1
+start1([1, 2], []) → 1*/
+
+int start1(int[]a,int b[]){
+    int count =0;
+
+    if(a.length>=1&&a[0]==1)
+        count++;
+    if(b.length>=1&&b[0]==1)
+        count++;
+    return count;
+
+}
+int [] bigger(int[]a, int b[]){
+//    int suma=a[0]+a[1];
+//    int sumb=b[0]+b[1];
+//    if(suma>=sumb)
+//        return a;
+//    return b;
+int sum=a[0]+a[1]-b[0]-b[1];
+if(sum>=0)
+    return a;
+return b;
+}
+/*
+* Given an array of ints of even length, return a new array length 2 containing the middle two elements from the original array. The original array will be length 2 or more.
+
+
+makeMiddle([1, 2, 3, 4]) → [2, 3]
+makeMiddle([7, 1, 2, 3, 4, 9]) → [2, 3]
+makeMiddle([1, 2]) → [1, 2]*/
+
+int []makeMiddle(int nums[]){
+    if (nums.length==2)
+        return nums;
+    int middle = nums.length/2;
+
+    nums= new int[]{nums[middle - 1], nums[middle]};
+    return nums;
+}
+/*
+*
+Given an array of ints, swap the first and last elements in the array. Return the modified array. The array length will be at least 1.
+
+
+swapEnds([1, 2, 3, 4]) → [4, 2, 3, 1]
+swapEnds([1, 2, 3]) → [3, 2, 1]
+swapEnds([8, 6, 7, 9, 5]) → [5, 6, 7, 9, 8]*/
+int []swapEnds(int nums[]){
+    int temp =nums[0];//first
+    nums[0]=nums[nums.length-1];//last
+    nums[nums.length-1]=temp;//swap
+    return nums;
+    }
+    /*
+    * Given an array of ints of odd length, return a new array length 3 containing the elements from the middle of the array. The array length will be at least 3.
+
+
+midThree([1, 2, 3, 4, 5]) → [2, 3, 4]
+midThree([8, 6, 7, 5, 3, 0, 9]) → [7, 5, 3]
+midThree([1, 2, 3]) → [1, 2, 3]*/
+int []midThree(int nums[]){
+    if(nums.length==3)
+        return nums;
+
+    int middle=nums.length/2;
+    nums= new int[]{nums[middle-1],nums[middle],nums[middle+1]};
+    return nums;
+}
+/*
+Given an array of ints of odd length, look at the first, last, and middle values in the array and return the largest. The array length will be a least 1.
+
+
+maxTriple([1, 2, 3]) → 3
+maxTriple([1, 5, 3]) → 5
+maxTriple([5, 2, 3]) → 5*/
+
+ int maxTriple(int nums[]){
+     int max=nums[0];
+     if(max<=nums[1])
+         max=nums[1];
+     if(max<=nums[2])
+         max=nums[2];
+     return max;
+ }
+
 }
