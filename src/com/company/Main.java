@@ -387,5 +387,154 @@ public int bigDiff(int nums[]){
     }
     return (max-min);
 }
+/*
+* Return the sum of the numbers in the array,
+* returning 0 for an empty array. Except the number 13 is very unlucky,
+*  so it does not count and numbers that come immediately after a 13 also do not count.
+sum13([1, 2, 2, 1]) → 6
+sum13([1, 1]) → 2
+sum13([1, 2, 2, 1, 13]) → 6
+ */
+public int sum12(int nums[]){
+    int sum=0;
+    for(int i=0;i<nums.length;i++){
+        if(nums[i]==13)
+            i++;
+        else
+        sum+=nums[i];
+    }
+    return  sum;
+}
+  /*
+  * Given an array of ints, return true if the array contains a 2 next to a 2 somewhere.
 
+
+  has22([1, 2, 2]) → true
+  has22([1, 2, 1, 2]) → false
+  has22([2, 1, 2]) → false*/
+  public boolean has22(int nums[]) {
+
+    for (int i = 0; i < nums.length; i++) {
+        if(nums[i]==2&&nums[i+1]==2)
+        {
+                return true;
+        }
+    }
+    return false;
+}
+/*
+*
+Given an array of ints, return true if the array contains no 1's and no 3's.
+
+
+lucky13([0, 2, 4]) → true
+lucky13([1, 2, 3]) → false
+lucky13([1, 2, 4]) → false*/
+
+public boolean lucky13(int nums[]){
+    for (int i = 0; i <nums.length-1 ; i++) {
+         if(nums[i]==1||nums[i]==3)
+             return  false;
+    }
+    return true;
+}
+/*
+* Given an array of ints, return true if the sum of all the 2's in the array is exactly 8.
+
+
+sum28([2, 3, 2, 2, 4, 2]) → true
+sum28([2, 3, 2, 2, 4, 2, 2]) → false
+sum28([1, 2, 3, 4]) → false*/
+
+public  boolean sum28(int nums[]){
+    int sum=8;
+    int sum2=0;
+    for (int i = 0; i <nums.length ; i++) {
+        //find 2 s
+        if(nums[i]==2)
+        {
+            sum2+=nums[i];
+        }
+    }
+    return (sum2==sum);
+}
+/*
+*
+Given an array of ints, return true if the number of 1's is greater than the number of 4's
+
+ore14([1, 4, 1]) → true
+more14([1, 4, 1, 4]) → false
+more14([1, 1]) → true*/
+public boolean more14(int nums[]){
+    int balance = 0;
+    for(int i = 0; i < nums.length; i++)
+    {
+        if(nums[i] == 1)
+            balance++;
+        else if(nums[i] == 4)
+            balance--;
+    }
+    return (balance > 0);
+}
+/*
+* Given a number n, create and return a new int array of length n, containing the numbers 0, 1, 2, ... n-1. The given n may be 0, in which case just return a length 0 array. You do not need a separate if-statement for the length-0 case; the for-loop should naturally execute 0 times in that case, so it just works. The syntax to make a new int array is: new int[desired_length]   (See also: FizzBuzz Code)
+
+
+fizzArray(4) → [0, 1, 2, 3]
+fizzArray(1) → [0]
+fizzArray(10) → [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]*/
+public int[] fizzArray(int n){
+  int arr[]= new int[n];
+  for(int i =0;i<n;i++){
+      arr[i]=i;
+  }
+  return arr;
+}
+/*Given an array of ints, return true if every element is a 1 or a 4.
+
+
+only14([1, 4, 1, 4]) → true
+only14([1, 4, 2, 4]) → false
+only14([1, 1]) → true
+*/
+public boolean only14(int nums[]){
+    if (nums.length!=0){
+        for (int i = 0; i < nums.length; i++) {
+            if(nums[i]!=1||nums[i]!=4)
+                return false;
+        }
+    }
+
+    return true;
+}
+/*
+* Given a number n, create and return a new string array of length n, containing the strings "0", "1" "2" .. through n-1. N may be 0, in which case just return a length 0 array. Note: String.valueOf(xxx) will make the String form of most types. The syntax to make a new string array is: new String[desired_length]  (See also: FizzBuzz Code)
+
+
+fizzArray2(4) → ["0", "1", "2", "3"]
+fizzArray2(10) → ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+fizzArray2(2) → ["0", "1"]*/
+private String[] fizzArray2(int n){
+    String arr[]= new String[n];
+    for (int i =0;i<n;i++)
+        arr[i]= String.valueOf(i);
+    return arr;
+}
+/*
+* Given an array of ints, return true if it contains no 1's or it contains no 4's.
+
+
+no14([1, 2, 3]) → true
+no14([1, 2, 3, 4]) → false
+no14([2, 3, 4]) → true*/
+public  boolean no14(int nums[]){
+    boolean one=false, four=false;
+    for (int i = 0; i < nums.length; i++) {
+        if(nums[i]==1)
+            one=true;
+        if(nums[i]==4)
+            four=true;
+    }
+    return (!one||!four);
+}
 }
